@@ -27,8 +27,20 @@ services:
     depends_on:
       - postgres
 
+  redis:
+    image: redis:latest
+    container_name: axiom_redis
+    ports:
+      - "${REDIS_HOST_PORT}:6379"
+    volumes:
+      - redis_data:/data
+    command: redis-server --appendonly yes
+    networks:
+      - axiom_network
+
 volumes:
   postgres_data:
+  redis_data:
 
 networks:
   axiom_network:
