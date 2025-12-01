@@ -16,6 +16,7 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
         autoLoadEntities: true,
         synchronize: true,
         logging: true,
+        uuidExtension: 'pgcrypto',
       }),
       inject: [ConfigService],
     }),
